@@ -2,7 +2,7 @@ FROM node:17-alpine
 
 WORKDIR /react_app
 
-COPY package.json .
+COPY ./package.json .
 
 RUN npm install 
 
