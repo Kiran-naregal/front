@@ -11,8 +11,9 @@ export default class Approve extends Component {
         this.state = ({ students: [] });
 
     }
+
     componentDidMount() {
-        axios.get('http://localhost:1999/api/user')
+        axios.get(`${process.env.REACT_APP_API_URL}xuser`)
             .then(Response => {
                 // console.log(Response.data.data)
                 this.setState({ students: Response.data.data })
@@ -24,10 +25,10 @@ export default class Approve extends Component {
     }
     updatestudent(id, cou) {
 
-        axios.post("http://localhost:1999/api/user/update/" + id, { cou: cou })
+        axios.post(`${process.env.API_URL}user/update/` + id, { cou: cou })
             .then((res) => {
                 // console.log(res.data.data)
-                axios.get('http://localhost:1999/api/user')
+                axios.get(`${process.env.API_URL}user`)
                     .then(Response => {
                         // console.log(Response.data.data)
                         this.setState({ students: Response.data.data })
@@ -40,10 +41,10 @@ export default class Approve extends Component {
     }
 
     deletestudent(id, cou){
-        axios.post("http://localhost:1999/api/user/reject/" + id, { cou: cou })
+        axios.post(`${process.env.API_URL}user/reject/` + id, { cou: cou })
         .then((res) => {
             // console.log(res.data.data)
-            axios.get('http://localhost:1999/api/user')
+            axios.get(`${process.env.API_URL}user`)
                 .then(Response => {
                     // console.log(Response.data.data)
                     this.setState({ students: Response.data.data })

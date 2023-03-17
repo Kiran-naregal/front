@@ -17,7 +17,7 @@ export default class Display extends Component {
 
         // console.log(sem)
         this.setState({ semOptions: e.target.value });
-        axios.get(`http://localhost:1999/api/course?&sem=${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_URL}course?&sem=${e.target.value}`)
             .then((res) => {
                 this.setState({ course: res.data.data })
                 // console.log(res.data.data)
@@ -26,7 +26,7 @@ export default class Display extends Component {
 
 
         // console.log(this.state.semOptions)
-        axios.get(`http://localhost:1999/api/user/appr?&year=${(new Date()).getFullYear()}&sem=${(e.target.value)}`)
+        axios.get(`${process.env.REACT_APP_API_URL}user/appr?&year=${(new Date()).getFullYear()}&sem=${(e.target.value)}`)
             .then(Response => {
                 // console.log(Response.data.data)
                 this.setState({ approvedStudents: Response.data.data })

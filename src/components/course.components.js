@@ -15,7 +15,7 @@ export default class CourseList extends Component {
 
     onChangeSem = (e) => {
         this.setState({sem : e.target.value})
-        axios.get(`http://localhost:1999/api/course?&sem=${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_URL}course?&sem=${e.target.value}`)
             .then((res) => {
                 this.setState({course: res.data.data})
                 // console.log(res.data.data)
@@ -28,7 +28,7 @@ export default class CourseList extends Component {
     handleDelete = (id)=>{
         console.log('Delete '+id);
 
-        axios.delete(`http://localhost:1999/api/course/delete?&id=${id}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}course/delete?&id=${id}`)
             .then((res)=>{
                 if(res.data.success === true){
                     const newCourse = this.state.course.filter(cour => cour._id !== id);

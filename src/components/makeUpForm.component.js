@@ -61,7 +61,7 @@ export default class MakeUPForm extends Component{
 
     onChangeSemOptions = (e) =>{
         this.setState({semOptions: e.target.value});
-        axios.get(`http://localhost:1999/api/course?&sem=${e.target.value}`)
+        axios.get(`${process.env.REACT_APP_API_URL}course?&sem=${e.target.value}`)
         .then((res) => {
             this.setState({course: res.data.data})
             // console.log(res.data.data)
@@ -210,7 +210,7 @@ export default class MakeUPForm extends Component{
             reason: this.state.selectReason
         }
         console.log(user);
-        axios.post(`http://localhost:1999/api/makeUpMinor`, user);
+        axios.post(`${process.env.REACT_APP_API_URL}makeUpMinor`, user);
 
         window.location = '/makeForm'
 

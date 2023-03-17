@@ -9,7 +9,7 @@ export default class MakeApproval extends Component{
         this.state = ({ students: [] });
     }
     componentDidMount() {
-        axios.get('http://localhost:1999/api/makeUPMinor')
+        axios.get(`${process.env.REACT_APP_API_URL}makeUPMinor`)
             .then(Response => {
                 console.log(Response.data.data)
                 this.setState({ students: Response.data.data })
@@ -22,10 +22,10 @@ export default class MakeApproval extends Component{
 
     updatestudent(id, cou) {
 
-        axios.post("http://localhost:1999/api/makeUpMinor/approveMakeup/" + id, { cou: cou })
+        axios.post(`${process.env.REACT_APP_API_URL}makeUpMinor/approveMakeup/` + id, { cou: cou })
             .then((res) => {
                 // console.log(res.data.data)
-                axios.get('http://localhost:1999/api/makeUpMinor')
+                axios.get(`${process.env.REACT_APP_API_URL}makeUpMinor`)
                     .then(Response => {
                         // console.log(Response.data.data)
                         this.setState({ students: Response.data.data })
@@ -38,10 +38,10 @@ export default class MakeApproval extends Component{
     }
 
     deletestudent(id, cou){
-        axios.post("http://localhost:1999/api/makeUpMinor/rejectMakeup/" + id, { cou: cou })
+        axios.post(`${process.env.REACT_APP_API_URL}makeUpMinor/rejectMakeup/` + id, { cou: cou })
         .then((res) => {
             // console.log(res.data.data)
-            axios.get('http://localhost:1999/api/makeUpMinor')
+            axios.get(`${process.env.REACT_APP_API_URL}makeUpMinor`)
                 .then(Response => {
                     // console.log(Response.data.data)
                     this.setState({ students: Response.data.data })

@@ -56,7 +56,7 @@ export default class CourseForm extends Component{
             format: this.state.creditFormat
         }
         console.log(a);
-        axios.post(`http://localhost:1999/api/course`, a);
+        axios.post(`${process.env.REACT_APP_API_URL}course`, a);
         window.location = '/courseForm';
     }
     render(){
