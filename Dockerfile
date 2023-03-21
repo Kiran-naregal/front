@@ -15,11 +15,11 @@ RUN npm run build
 
 FROM nginx:stable-alpine-perl
 
+COPY nginx-os4.conf /etc/nginx/nginx.conf
+
 WORKDIR /usr/share/nginx/html
 
-RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
-
-RUN rm -rf ./*
+EXPOSE 8080:8080
 
 COPY --from=build /react_app/build .
 
