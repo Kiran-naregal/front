@@ -17,6 +17,8 @@ FROM nginx:stable-alpine-perl
 
 WORKDIR /usr/share/nginx/html
 
+RUN chmod g+rwx /var/cache/nginx /var/run /var/log/nginx
+
 RUN rm -rf ./*
 
 COPY --from=build /react_app/build .
