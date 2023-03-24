@@ -14,9 +14,9 @@ FROM bitnami/nginx
 
 COPY nginx.conf /opt/bitnami/nginx/conf/server_blocks/nginx.conf
 
-WORKDIR /app
+RUN mkdir /opt/bitnami/myapp
 
-RUN rm -rf ./*
+WORKDIR /opt/bitnami/myapp
 
 EXPOSE 8080:8080
 
