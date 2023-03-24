@@ -16,7 +16,7 @@ RUN npm run build
 FROM bitnami/nginx
 
 # COPY nginx-os4.conf /etc/nginx/nginx.conf
-
+RUN rm -rf /usr/share/nginx/html/*
 WORKDIR /usr/share/nginx/html
 
 EXPOSE 8080:8080
