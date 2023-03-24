@@ -8,16 +8,15 @@ RUN npm install
 
 COPY . ./
 
-# EXPOSE 3000
-
-# CMD ["npm","start"]
 RUN npm run build
 
 FROM bitnami/nginx
 
 COPY nginx.conf /etc/nginx/nginx.conf
-RUN rm -rf /usr/share/nginx/html/*
+
 WORKDIR /usr/share/nginx/html
+
+RUN rm -rf ./*
 
 EXPOSE 8080:8080
 
