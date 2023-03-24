@@ -13,7 +13,7 @@ COPY . ./
 # CMD ["npm","start"]
 RUN npm run build
 
-FROM nginx:stable-alpine-perl
+FROM bitnami/nginx
 
 COPY nginx-os4.conf /etc/nginx/nginx.conf
 
