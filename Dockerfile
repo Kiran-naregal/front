@@ -12,9 +12,9 @@ RUN npm run build
 
 FROM bitnami/nginx
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /opt/bitnami/nginx/conf/server_blocks/nginx.conf
 
-WORKDIR /usr/share/nginx/html
+WORKDIR /app
 
 RUN rm -rf ./*
 
