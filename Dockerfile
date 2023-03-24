@@ -15,7 +15,7 @@ RUN npm run build
 
 FROM bitnami/nginx
 
-COPY nginx-os4.conf /etc/nginx/nginx.conf
+# COPY nginx-os4.conf /etc/nginx/nginx.conf
 
 WORKDIR /usr/share/nginx/html
 
