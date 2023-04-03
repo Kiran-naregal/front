@@ -13,7 +13,7 @@ export default class Approve extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${process.env.REACT_APP_API_URL}xuser`)
+        axios.get(`${process.env.REACT_APP_API_URL}user`)
             .then(Response => {
                 // console.log(Response.data.data)
                 this.setState({ students: Response.data.data })
